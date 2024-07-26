@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mainproject_cdm/sizedbox.dart';
 
-class Customtable1 extends StatefulWidget {
-  const Customtable1({super.key, required this.table1});
+class Customtable1 extends StatelessWidget {
+  const Customtable1(
+      {super.key, required this.table1, required this.isSelected});
 
   final String table1;
+  final bool isSelected;
 
-  @override
-  State<Customtable1> createState() => _CustomtableState();
-}
-
-class _CustomtableState extends State<Customtable1> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,16 +15,17 @@ class _CustomtableState extends State<Customtable1> {
         children: [
           Container(
             child: Center(
-                child: Text(
-              widget.table1,
-              style: TextStyle(fontSize: 9, fontWeight: FontWeight.w400),
-            )),
+              child: Text(
+                table1,
+                style: TextStyle(fontSize: 9, fontWeight: FontWeight.w400),
+              ),
+            ),
             height: 60,
             width: 30,
             decoration: BoxDecoration(
-                border: Border.all(color: Colors.black26),
-                borderRadius: BorderRadius.circular(12),
-                color: Colors.black12),
+              borderRadius: BorderRadius.circular(12),
+              color: isSelected ? Colors.green : Colors.black12,
+            ),
           ),
           Column(
             children: [
@@ -37,9 +35,9 @@ class _CustomtableState extends State<Customtable1> {
                   height: 22,
                   width: 14,
                   decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black26),
-                      borderRadius: BorderRadius.circular(6),
-                      color: Colors.black12),
+                    borderRadius: BorderRadius.circular(6),
+                    color: isSelected ? Colors.green : Colors.black12,
+                  ),
                 ),
               ),
               2.hBox,
@@ -49,31 +47,26 @@ class _CustomtableState extends State<Customtable1> {
                   height: 22,
                   width: 14,
                   decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black26),
-                      borderRadius: BorderRadius.circular(6),
-                      color: Colors.black12),
+                    borderRadius: BorderRadius.circular(6),
+                    color: isSelected ? Colors.green : Colors.black12,
+                  ),
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
   }
 }
 
-
-
-class Customtable2 extends StatefulWidget {
-  const Customtable2({super.key, required this.table2});
+class Customtable2 extends StatelessWidget {
+  const Customtable2(
+      {super.key, required this.table2, required this.isSelected});
 
   final String table2;
+  final bool isSelected;
 
-  @override
-  State<Customtable2> createState() => _MyWidgetState();
-}
-
-class _MyWidgetState extends State<Customtable2> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -87,28 +80,28 @@ class _MyWidgetState extends State<Customtable2> {
                   height: 14,
                   width: 22,
                   decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black26),
-                      borderRadius: BorderRadius.circular(6),
-                      color: Colors.black12),
+                    borderRadius: BorderRadius.circular(6),
+                    color: isSelected ? Colors.green : Colors.black12,
+                  ),
                 ),
                 2.wBox,
                 Container(
                   height: 14,
                   width: 22,
                   decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black26),
-                      borderRadius: BorderRadius.circular(6),
-                      color: Colors.black12),
+                    borderRadius: BorderRadius.circular(6),
+                    color: isSelected ? Colors.green : Colors.black12,
+                  ),
                 ),
                 2.wBox,
                 Container(
                   height: 14,
                   width: 22,
                   decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black26),
-                      borderRadius: BorderRadius.circular(6),
-                      color: Colors.black12),
-                )
+                    borderRadius: BorderRadius.circular(6),
+                    color: isSelected ? Colors.green : Colors.black12,
+                  ),
+                ),
               ],
             ),
           ),
@@ -118,16 +111,16 @@ class _MyWidgetState extends State<Customtable2> {
               Container(
                 child: Center(
                   child: Text(
-                    widget.table2,
+                    table2,
                     style: TextStyle(fontSize: 9, fontWeight: FontWeight.w400),
                   ),
                 ),
                 height: 30,
                 width: 95,
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black26),
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.black12),
+                  borderRadius: BorderRadius.circular(12),
+                  color: isSelected ? Colors.green : Colors.black12,
+                ),
               ),
             ],
           ),
@@ -140,28 +133,28 @@ class _MyWidgetState extends State<Customtable2> {
                   height: 14,
                   width: 22,
                   decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black26),
-                      borderRadius: BorderRadius.circular(6),
-                      color: Colors.black12),
+                    borderRadius: BorderRadius.circular(6),
+                    color: isSelected ? Colors.green : Colors.black12,
+                  ),
                 ),
                 2.wBox,
                 Container(
                   height: 14,
                   width: 22,
                   decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black26),
-                      borderRadius: BorderRadius.circular(6),
-                      color: Colors.black12),
+                    borderRadius: BorderRadius.circular(6),
+                    color: isSelected ? Colors.green : Colors.black12,
+                  ),
                 ),
                 2.wBox,
                 Container(
                   height: 14,
                   width: 22,
                   decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black26),
-                      borderRadius: BorderRadius.circular(6),
-                      color: Colors.black12),
-                )
+                    borderRadius: BorderRadius.circular(6),
+                    color: isSelected ? Colors.green : Colors.black12,
+                  ),
+                ),
               ],
             ),
           ),

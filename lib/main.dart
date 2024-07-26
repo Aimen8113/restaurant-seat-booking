@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:mainproject_cdm/view/custompages/bookingwidget.dart';
+import 'package:mainproject_cdm/view/custompages/customrestaurant.dart';
 import 'package:mainproject_cdm/view/custompages/customtable.dart';
 import 'package:mainproject_cdm/view/homepage/homepage.dart';
 import 'package:mainproject_cdm/view/login/login.dart';
 import 'package:mainproject_cdm/view/mainpage.dart';
 import 'package:mainproject_cdm/view/orderfood.dart';
+import 'package:mainproject_cdm/view/resseetbooking.dart';
+import 'package:mainproject_cdm/view_model/bottombar/bottom.dart';
 
 
 void main() {
@@ -37,7 +41,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:Homepage()
+      home:MainPage()
     );
   }
 }

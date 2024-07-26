@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mainproject_cdm/sizedbox.dart';
-import 'package:mainproject_cdm/view/tablebooking.dart';
+import 'package:mainproject_cdm/view/tablebooking/tablebooking.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class Resbooking extends StatefulWidget {
@@ -29,16 +29,21 @@ class _ResbookingState extends State<Resbooking> {
 
   Widget content() {
     return Column(
-      children: [Text(""+today.toString().split("")[0]),
+      children:[Text(""+today.toString().split("")[0]),
                 Container(
-          child: TableCalendar(headerStyle: HeaderStyle(formatButtonVisible: false),
-          availableGestures: AvailableGestures.all,
-          selectedDayPredicate:(day) => isSameDay(day,today),
-              focusedDay: today,
-              firstDay: DateTime.utc(2010, 10, 16),
-              lastDay: DateTime.utc(2030, 3, 14),
-              onDaySelected: _onDaySelected,
-              ),
+          child: InkWell(onTap: () {
+            showDialog(context: context, builder:(BuildContext context) {return AlertDialog(content: SingleChildScrollView(child: Column(children: [ TableCalendar(headerStyle: HeaderStyle(formatButtonVisible: false),
+            availableGestures: AvailableGestures.all,
+            selectedDayPredicate:(day) => isSameDay(day,today),
+                focusedDay: today,
+                firstDay: DateTime.utc(2010, 10, 16),
+                lastDay: DateTime.utc(2030, 3, 14),
+                onDaySelected: _onDaySelected,
+                ),],),),);
+              
+            },);
+          },
+          ),
         ),30.hBox,
          InkWell(onTap: () {
            Navigator.of(context).push(MaterialPageRoute(builder:(context) => Tablebooking(),));
