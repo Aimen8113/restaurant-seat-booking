@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 import 'package:mainproject_cdm/sizedbox.dart';
 import 'package:mainproject_cdm/view/booking/cubit/booking_cubit.dart';
 import 'package:mainproject_cdm/view/booking/cubit/booking_state.dart';
@@ -13,11 +14,11 @@ class BookingSeatView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.amber),
-        backgroundColor: Colors.black,
+        iconTheme: const IconThemeData(color: Color.fromARGB(255, 70, 171, 74)),
+        backgroundColor: Colors.white,
         title: const Text(
           'Restaurant Seat Booking',
-          style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+          style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
         ),
       ),
       body: BlocProvider(
@@ -37,9 +38,11 @@ class BookingSeatView extends StatelessWidget {
                   InkWell(
                     onTap: () => _selectDate(context),
                     child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 12, horizontal: 16),
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.blue),
+                        border:
+                            Border.all(color: Color.fromARGB(255, 70, 171, 74)),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
@@ -63,9 +66,12 @@ class BookingSeatView extends StatelessWidget {
                   InkWell(
                     onTap: () => _selectTime(context),
                     child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 12, horizontal: 16),
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.orange),
+                        border: Border.all(
+                          color: Color.fromARGB(255, 70, 171, 74),
+                        ),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
@@ -90,17 +96,20 @@ class BookingSeatView extends StatelessWidget {
                   8.hBox,
                   InkWell(
                     onTap: () async {
-                      final selectedTable = await Navigator.of(context).push<String>(
-                        MaterialPageRoute(builder: (context) => const Tablebooking())
-                      );
+                      final selectedTable = await Navigator.of(context)
+                          .push<String>(MaterialPageRoute(
+                              builder: (context) => const Tablebooking()));
                       if (selectedTable != null) {
                         context.read<BookingCubit>().selectTable(selectedTable);
                       }
                     },
                     child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 12, horizontal: 16),
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.orange),
+                        border: Border.all(
+                          color: Color.fromARGB(255, 70, 171, 74),
+                        ),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
@@ -125,7 +134,7 @@ class BookingSeatView extends StatelessWidget {
                         width: 100,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: Colors.black54,
+                          color: Color.fromARGB(255, 70, 171, 74),
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: const Center(
@@ -139,7 +148,8 @@ class BookingSeatView extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ),
+                  ),15.hBox,
+                 
                 ],
               ),
             );
@@ -149,12 +159,12 @@ class BookingSeatView extends StatelessWidget {
     );
   }
 
-  Future<void> _selectDate(BuildContext context) async {
+  Future<void> _selectDate(BuildContext context) async{
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: context.read<BookingCubit>().state.selectedDate,
-      firstDate: DateTime.now(),
-      lastDate: DateTime(2101),
+      firstDate:DateTime.now(),
+      lastDate:DateTime(2101),
     );
     if (picked != null) {
       context.read<BookingCubit>().selectDate(picked);
@@ -164,7 +174,8 @@ class BookingSeatView extends StatelessWidget {
   Future<void> _selectTime(BuildContext context) async {
     final TimeOfDay? picked = await showTimePicker(
       context: context,
-      initialTime: context.read<BookingCubit>().state.selectedTime ?? TimeOfDay.now(),
+      initialTime:
+          context.read<BookingCubit>().state.selectedTime ?? TimeOfDay.now(),
     );
     if (picked != null) {
       context.read<BookingCubit>().selectTime(picked);
@@ -176,21 +187,21 @@ class BookingSeatView extends StatelessWidget {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          backgroundColor: Colors.white24,
+          backgroundColor: Colors.blue,
           title: const Text('Booking Confirmed'),
           content: Text(
             'Table ${state.selectedTable} booked for ${DateFormat.yMd().format(state.selectedDate)} at ${state.selectedTime?.format(context) ?? 'Not Set'}',
           ),
           actions: [
             TextButton(
-              onPressed: () => Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => const Orderfood())),
+              onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const Orderfood())),
               child: const Text('OK'),
             ),
           ],
         ),
       );
-    } else {
+    } else{
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Please select both a table and a time')),
       );

@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mainproject_cdm/sizedbox.dart';
-import 'package:mainproject_cdm/view/Restaurnt_details.dart';
+import 'package:mainproject_cdm/view/drawer/drawer_logout.dart';
+import 'package:mainproject_cdm/view/profilepage/profile.dart';
+import 'package:mainproject_cdm/view/restaurant_details/Restaurnt_details.dart';
 import 'package:mainproject_cdm/view/booking/Booking.dart';
 import 'package:mainproject_cdm/view/curserslider.dart';
 import 'package:mainproject_cdm/view/custompages/bookingwidget.dart';
@@ -39,21 +42,17 @@ class Homepage extends StatelessWidget {
                     fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
               ),
               70.wBox,
-              Container(
-                height: 38,
-                width: 38,
-                decoration: BoxDecoration(
-                    image: const DecorationImage(
-                        image: AssetImage(
-                            "assets/best-look-dating-profile-picture-4-1494004363.jpg"),
-                        fit: BoxFit.cover),
-                    borderRadius: BorderRadius.circular(20)),
-              ),
+              InkWell(
+                  onTap: () {
+                    FirebaseAuth.instance.signOut();
+                  },
+                  child: const Icon(Icons.logout)),
             ],
           ),
         ),
       ),
       drawer: Drawer(
+        backgroundColor: Colors.white,
         child: Column(
           children: [
             Stack(
@@ -64,7 +63,7 @@ class Homepage extends StatelessWidget {
                     height: 105,
                     width: 105,
                     decoration: BoxDecoration(
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             fit: BoxFit.cover,
                             image: AssetImage("assets/logo without name.png")),
                         borderRadius: BorderRadius.circular(200)),
@@ -72,7 +71,7 @@ class Homepage extends StatelessWidget {
                 ),
               ],
             ),
-            10.hBox,
+            25.hBox,
             Row(
               children: [
                 Padding(
@@ -81,12 +80,12 @@ class Homepage extends StatelessWidget {
                     width: 287,
                     height: 48,
                     decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 70, 171, 74),
+                        color: const Color.fromARGB(255, 70, 171, 74),
                         borderRadius: BorderRadius.circular(5)),
-                    child: Row(
+                    child: const Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Icon(
                             Icons.home,
                             color: Colors.white,
@@ -105,40 +104,81 @@ class Homepage extends StatelessWidget {
                 ),
               ],
             ),
-            18.hBox,Row(
+            6.hBox,
+            Row(
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: 287,
-                    height: 48,
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 70, 171, 74),
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Icon(
-                            Icons.home,
-                            color: Colors.white,
+                  child: InkWell(onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder:(context) => ProfilePage(),));
+                  },
+                    child: Container(
+                      width: 287,
+                      height: 48,
+                      decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 70, 171, 74),
+                          borderRadius: BorderRadius.circular(5)),
+                      child: const Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Icon(
+                              Icons.person,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                        Text(
-                          "Home",
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white),
-                        )
-                      ],
+                          Text(
+                            "Profile",
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            6.hBox,
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: InkWell(onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder:(context) =>AlertDialogExample(),));
+                  },
+                    child: Container(
+                      width: 287,
+                      height: 48,
+                      decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 70, 171, 74),
+                          borderRadius: BorderRadius.circular(5)),
+                      child: const Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Icon(
+                              Icons.logout,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            "Log out",
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
             18.hBox,
-            
           ],
         ),
       ),
@@ -241,8 +281,8 @@ class Homepage extends StatelessWidget {
               15.hBox,
               Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 18),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 18),
                     child: Text(
                       "Book Your Restaurant",
                       style:
@@ -253,10 +293,10 @@ class Homepage extends StatelessWidget {
                   InkWell(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => Mybooking(),
+                        builder: (context) => const Mybooking(),
                       ));
                     },
-                    child: Text(
+                    child: const Text(
                       "See All",
                       style: TextStyle(
                         fontSize: 13,
@@ -264,12 +304,12 @@ class Homepage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Icon(Icons.drive_file_move_rounded)
+                  const Icon(Icons.drive_file_move_rounded)
                 ],
               ),
               10.hBox,
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: Customres(
                     hotel: "Paragon Hotel",
                     location:
@@ -277,15 +317,6 @@ class Homepage extends StatelessWidget {
                     image: AssetImage(
                         "assets/restaurant-table-14-persons-restaurant-hall-with-brick-walls-wide-windows-wood-ceiling.jpg")),
               ),
-              Row(
-                children: [
-                  Custombooking(text: "Date"),
-                  4.wBox,
-                  Custombooking(text: "Time"),
-                  4.wBox,
-                  Custombooking(text: "Slot")
-                ],
-              )
             ],
           ),
         ),

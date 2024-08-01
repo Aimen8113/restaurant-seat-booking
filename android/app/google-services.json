@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1071441541075",
+    "project_id": "restro-dc55f",
+    "storage_bucket": "restro-dc55f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071441541075:android:ddb3f586817a9a5f3aa126",
+        "android_client_info": {
+          "package_name": "com.example.mainproject_cdm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA69ELPFVVhv6qGwYiRIW4mgSyliRBEb4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

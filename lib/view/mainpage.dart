@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mainproject_cdm/sizedbox.dart';
 import 'package:mainproject_cdm/view/login/login.dart';
+import 'package:mainproject_cdm/view/register/register.dart';
 
 class Mainscreen extends StatelessWidget {
   const Mainscreen({super.key});
@@ -31,9 +32,12 @@ class Mainscreen extends StatelessWidget {
           ),
           55.hBox,
           Center(
-            child: InkWell(onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder:(context) => Loginpage(),));
-            },
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Loginpage(),
+                ));
+              },
               child: Container(
                 width: 312,
                 height: 48,
@@ -52,19 +56,26 @@ class Mainscreen extends StatelessWidget {
             ),
           ),
           16.hBox,
-          Container(
-            width: 312,
-            height: 48,
-            decoration: BoxDecoration(
-                border: Border.all(), borderRadius: BorderRadius.circular(5)),
-            child: Center(
-                child: Text(
-              "Sign up",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 13),
-            )),
+          InkWell(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => Registerpage(),
+              ));
+            },
+            child: Container(
+              width: 312,
+              height: 48,
+              decoration: BoxDecoration(
+                  border: Border.all(), borderRadius: BorderRadius.circular(5)),
+              child: Center(
+                  child: Text(
+                "Sign up",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 13),
+              )),
+            ),
           ),
         ],
       ),

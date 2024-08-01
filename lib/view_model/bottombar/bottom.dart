@@ -2,11 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mainproject_cdm/sizedbox.dart';
-import 'package:mainproject_cdm/view/Restaurnt_details.dart';
+import 'package:mainproject_cdm/view/restaurant_details/Restaurnt_details.dart';
 import 'package:mainproject_cdm/view/booking/Booking.dart';
-import 'package:mainproject_cdm/view/booking/bookinghistory.dart';
+
 import 'package:mainproject_cdm/view/homepage/homepage.dart';
 import 'package:mainproject_cdm/view/orderfood.dart';
+import 'package:mainproject_cdm/view/profilepage/profile.dart';
 import 'package:mainproject_cdm/view/tablebooking/tablebooking.dart';
 import 'package:mainproject_cdm/view_model/bottombar/cubit/bottom_cubit.dart';
 
@@ -28,10 +29,9 @@ class MainPage extends StatelessWidget {
                 ? Homepage()
                 : flag == 2
                     ? Mybooking()
-                    : flag == 3
-                        ? const Boknghstry()
+
                         : flag == 4
-                            ?  BookingSeatView()
+                            ?  ProfilePage()
                             : 5.hBox,
             bottomNavigationBar: Stack(children: [
               Container(

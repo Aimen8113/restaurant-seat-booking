@@ -1,4 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:mainproject_cdm/firebase_options.dart';
 import 'package:mainproject_cdm/view/custompages/bookingwidget.dart';
 import 'package:mainproject_cdm/view/custompages/customrestaurant.dart';
 import 'package:mainproject_cdm/view/custompages/customtable.dart';
@@ -10,7 +12,9 @@ import 'package:mainproject_cdm/view/resseetbooking.dart';
 import 'package:mainproject_cdm/view_model/bottombar/bottom.dart';
 
 
-void main() {
+void main()async {
+   WidgetsFlutterBinding.ensureInitialized();
+   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -41,7 +45,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:MainPage()
+      home:Mainscreen()
     );
   }
 }
