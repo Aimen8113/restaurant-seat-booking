@@ -2,7 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mainproject_cdm/sizedbox.dart';
-import 'package:mainproject_cdm/view/restaurant_details/Restaurnt_details.dart';
+import 'package:mainproject_cdm/view/boknghstry/bookinghstry.dart';
+import 'package:mainproject_cdm/view/restaurant_list/Restaurnt_list.dart';
 import 'package:mainproject_cdm/view/booking/Booking.dart';
 
 import 'package:mainproject_cdm/view/homepage/homepage.dart';
@@ -29,6 +30,8 @@ class MainPage extends StatelessWidget {
                 ? Homepage()
                 : flag == 2
                     ? Mybooking()
+                    : flag == 3
+                    ? Bookinhistory()
 
                         : flag == 4
                             ?  ProfilePage()

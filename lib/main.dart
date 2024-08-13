@@ -10,6 +10,7 @@ import 'package:mainproject_cdm/view/mainpage.dart';
 import 'package:mainproject_cdm/view/orderfood.dart';
 import 'package:mainproject_cdm/view/resseetbooking.dart';
 import 'package:mainproject_cdm/view_model/bottombar/bottom.dart';
+import 'package:mainproject_cdm/view_model/splash/spalsh.dart';
 
 
 void main()async {
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:Mainscreen()
+      home:SplashScreen()
     );
   }
 }

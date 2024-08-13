@@ -3,14 +3,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mainproject_cdm/sizedbox.dart';
+import 'package:mainproject_cdm/view/Restaurant_details/restauarnt_paragon.dart';
+import 'package:mainproject_cdm/view/Restaurant_details/restaurant_ginger.dart';
+import 'package:mainproject_cdm/view/Restaurant_details/restaurant_razoi.dart';
+import 'package:mainproject_cdm/view/Restaurant_details/restaurant_zatar.dart';
 import 'package:mainproject_cdm/view/drawer/drawer_logout.dart';
+import 'package:mainproject_cdm/view/mainpage.dart';
 import 'package:mainproject_cdm/view/profilepage/profile.dart';
-import 'package:mainproject_cdm/view/restaurant_details/Restaurnt_details.dart';
+import 'package:mainproject_cdm/view/restaurant_list/Restaurnt_list.dart';
 import 'package:mainproject_cdm/view/booking/Booking.dart';
 import 'package:mainproject_cdm/view/curserslider.dart';
 import 'package:mainproject_cdm/view/custompages/bookingwidget.dart';
 import 'package:mainproject_cdm/view/custompages/custom.dart';
 import 'package:mainproject_cdm/view/custompages/customrestaurant.dart';
+import 'package:mainproject_cdm/view_model/bottombar/bottom.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class Homepage extends StatelessWidget {
@@ -37,16 +43,12 @@ class Homepage extends StatelessWidget {
                 backgroundImage: AssetImage("assets/logo without name.png"),
               ),
               const Text(
-                "Restro",
+                "Tablebooky",
                 style: TextStyle(
                     fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
               ),
               70.wBox,
-              InkWell(
-                  onTap: () {
-                    FirebaseAuth.instance.signOut();
-                  },
-                  child: const Icon(Icons.logout)),
+            
             ],
           ),
         ),
@@ -72,39 +74,8 @@ class Homepage extends StatelessWidget {
               ],
             ),
             25.hBox,
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: 287,
-                    height: 48,
-                    decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 70, 171, 74),
-                        borderRadius: BorderRadius.circular(5)),
-                    child: const Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Icon(
-                            Icons.home,
-                            color: Colors.white,
-                          ),
-                        ),
-                        Text(
-                          "Home",
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            6.hBox,
+            
+        
             Row(
               children: [
                 Padding(
@@ -141,13 +112,13 @@ class Homepage extends StatelessWidget {
                 ),
               ],
             ),
-            6.hBox,
+            
             Row(
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder:(context) =>AlertDialogExample(),));
+                    Navigator.of(context).push(MaterialPageRoute(builder:(context) =>Mainscreen(),));
                   },
                     child: Container(
                       width: 287,
@@ -173,6 +144,69 @@ class Homepage extends StatelessWidget {
                           ),
                         ],
                       ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+             Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: 287,
+                    height: 48,
+                    decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 70, 171, 74),
+                        borderRadius: BorderRadius.circular(5)),
+                    child: const Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Icon(
+                            Icons.home,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          "Privacy & Policy",
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ), Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: 287,
+                    height: 48,
+                    decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 70, 171, 74),
+                        borderRadius: BorderRadius.circular(5)),
+                    child: const Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Icon(
+                            Icons.home,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          "About",
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white),
+                        )
+                      ],
                     ),
                   ),
                 ),
@@ -215,11 +249,7 @@ class Homepage extends StatelessWidget {
                     ),
                   ),
                   70.wBox,
-                  const Text(
-                    "See All",
-                    style: TextStyle(color: Colors.black54, fontSize: 12),
-                  ),
-                  const Icon(Icons.double_arrow)
+                  
                 ],
               ),
               20.hBox,
@@ -227,20 +257,23 @@ class Homepage extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 20),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => BookingSeatView(),
-                        ));
+                    
+                      child: InkWell(onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder:(context) => Restaurentparagon(),));
                       },
-                      child: const Customcontainer(
-                          image: "assets/IMG_2025.280.jpg"),
-                    ),
+                        child: const Customcontainer(
+                            image: "assets/IMG_2025.280.jpg"),
+                      ),
+                    
                   ),
                   18.wBox,
-                  const Customcontainer(
-                      image:
-                          "assets/photorealistic-wedding-venue-with-intricate-decor-ornaments.jpg"),
+                  InkWell(onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder:(context) => Restaurentginger(),));
+                      },
+                    child: const Customcontainer(
+                        image:
+                            "assets/photorealistic-wedding-venue-with-intricate-decor-ornaments.jpg"),
+                  ),
                 ],
               ),
               10.hBox,
@@ -257,14 +290,21 @@ class Homepage extends StatelessWidget {
               15.hBox,
               Row(
                 children: [
-                  const Padding(
+                   Padding(
                     padding: EdgeInsets.only(left: 20),
-                    child: Customcontainer(
-                        image:
-                            "assets/restaurant-table-14-persons-restaurant-hall-with-brick-walls-wide-windows-wood-ceiling.jpg"),
+                    child: InkWell(onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder:(context) => Restaurentrazoi(),));
+                      },
+                      child: Customcontainer(
+                          image:
+                              "assets/restaurant-table-14-persons-restaurant-hall-with-brick-walls-wide-windows-wood-ceiling.jpg"),
+                    ),
                   ),
                   18.wBox,
-                  const Customcontainer(image: "assets/IMG_2025.280.jpg"),
+                  InkWell(onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder:(context) => Restaurentzatar(),));
+                      },
+                    child: const Customcontainer(image: "assets/image 5.png")),
                 ],
               ),
               10.hBox,
@@ -315,7 +355,8 @@ class Homepage extends StatelessWidget {
                     location:
                         "Kannur Rd, near CH Over Bridge,\n Kozhikode, Kerala 673001",
                     image: AssetImage(
-                        "assets/restaurant-table-14-persons-restaurant-hall-with-brick-walls-wide-windows-wood-ceiling.jpg")),
+                        "assets/restaurant-table-14-persons-restaurant-hall-with-brick-walls-wide-windows-wood-ceiling.jpg"),text: "",
+                        ),
               ),
             ],
           ),

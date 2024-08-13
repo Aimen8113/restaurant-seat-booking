@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mainproject_cdm/sizedbox.dart';
+import 'package:mainproject_cdm/view/boknghstry/bookinghstry.dart';
 import 'package:mainproject_cdm/view/booking/cubit/booking_cubit.dart';
 import 'package:mainproject_cdm/view/booking/cubit/booking_state.dart';
 import 'package:mainproject_cdm/view/orderfood.dart';
@@ -126,7 +127,7 @@ class BookingSeatView extends StatelessWidget {
                       ),
                     ),
                   ),
-                  16.hBox,
+                  25.hBox,
                   Center(
                     child: InkWell(
                       onTap: () => _bookTable(context, state),
@@ -148,8 +149,13 @@ class BookingSeatView extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ),15.hBox,
-                 
+                  ),
+                  130.hBox,
+                  Container(height:50,width:double.infinity,
+                    
+                    decoration: BoxDecoration(
+                        image: DecorationImage(image: AssetImage("assets/Frame (3).png"))),
+                  )
                 ],
               ),
             );
@@ -159,12 +165,12 @@ class BookingSeatView extends StatelessWidget {
     );
   }
 
-  Future<void> _selectDate(BuildContext context) async{
+  Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: context.read<BookingCubit>().state.selectedDate,
-      firstDate:DateTime.now(),
-      lastDate:DateTime(2101),
+      firstDate: DateTime.now(),
+      lastDate: DateTime(2101),
     );
     if (picked != null) {
       context.read<BookingCubit>().selectDate(picked);
@@ -183,25 +189,26 @@ class BookingSeatView extends StatelessWidget {
   }
 
   void _bookTable(BuildContext context, BookingState state) {
+    context.read<BookingCubit>().bookTable(context);
     if (state.selectedTable != null && state.selectedTime != null) {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.white,
           title: const Text('Booking Confirmed'),
           content: Text(
             'Table ${state.selectedTable} booked for ${DateFormat.yMd().format(state.selectedDate)} at ${state.selectedTime?.format(context) ?? 'Not Set'}',
           ),
           actions: [
             TextButton(
-              onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const Orderfood())),
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const Bookinhistory())),
               child: const Text('OK'),
             ),
           ],
         ),
       );
-    } else{
+    } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Please select both a table and a time')),
       );

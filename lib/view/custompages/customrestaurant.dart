@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:mainproject_cdm/sizedbox.dart';
 
 class Customres extends StatelessWidget {
   const Customres(
       {super.key,
       required this.hotel,
       required this.location,
-      required this.image});
+      required this.image,
+      required this.text});
   final String hotel;
   final String location;
   final ImageProvider? image;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -16,23 +19,18 @@ class Customres extends StatelessWidget {
       children: [
         Container(
           width: double.infinity,
-          height: 100,
+          height: 145,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(9),
             color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 2,
-                blurRadius: 5,
-                offset: Offset(0, 3), // changes position of shadow
-              ),
-            ],
+            border: Border.all(color: Color.fromARGB(255, 183, 126, 106),)
           ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(14.0),
                 child: Container(
                   height: 80,
                   width: 90,
@@ -53,7 +51,8 @@ class Customres extends StatelessWidget {
                   children: [
                     Text(
                       hotel,
-                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                     ),
                     Row(
                       children: [
@@ -62,16 +61,38 @@ class Customres extends StatelessWidget {
                           size: 13,
                           color: Colors.orange,
                         ),
-                        SizedBox(width: 3), // Add some space between icon and text
-                        
-                          // Prevent text overflow
-                          Text(
-                            location,
-                            style: TextStyle(fontSize: 10),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
+                        SizedBox(
+                            width: 3), // Add some space between icon and text
+
+                        // Prevent text overflow
+                        Text(
+                          location,
+                          style: TextStyle(fontSize: 10),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ),35.hBox,
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left:80),
+                          child: Container(
+                            height: 32,
+                            width: 115,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(9),
+                              color: Color.fromARGB(255, 215, 178, 164),
+                              border: Border.all(color: Colors.black12)
+                            ),
+                            child: Center(
+                                child: Text(
+                              text,
+                              style: TextStyle(
+                                  fontSize: 11, fontWeight: FontWeight.w500),
+                            )),
                           ),
-                        
+                        ),
                       ],
                     ),
                   ],

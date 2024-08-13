@@ -8,6 +8,11 @@ class Orderfood extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Color.fromARGB(255, 70, 171, 74)),
+        backgroundColor: Colors.white,
+       
+      ),
       backgroundColor: Colors.white,
       body: Center(
         child: Column(
@@ -46,7 +51,9 @@ class Orderfood extends StatelessWidget {
             ),
             30.hBox,
             Text(
-                "Please respect our policies and do come to\nyour reserved table with in the specified time",style: TextStyle(color: Colors.black54,fontSize:13),)
+              "Please respect our policies and do come to\nyour reserved table with in the specified time",
+              style: TextStyle(color: Colors.black54, fontSize: 13),
+            )
           ],
         ),
       ),

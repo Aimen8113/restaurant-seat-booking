@@ -12,7 +12,7 @@ class Loginpage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: Colors.white,
       body: BlocProvider(
         create: (context) =>LoginCubit(context),
         child: BlocBuilder<LoginCubit, LoginState>(
@@ -103,7 +103,7 @@ class Loginpage extends StatelessWidget {
                 Center(
                   child: InkWell(
                     onTap: () {
-                     cubit.login();
+                     cubit.login(context);
                     },
                     child: Container(
                       width: 287,
@@ -121,59 +121,8 @@ class Loginpage extends StatelessWidget {
                       )),
                     ),
                   ),
-                ),
-                38.hBox,
-                Row(
-                  children: [
-                    Expanded(
-                      child: Divider(
-                        indent: 36,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                      child: Text(
-                        'or continue with',
-                        style: TextStyle(color: Colors.black87, fontSize: 12),
-                      ),
-                    ),
-                    Expanded(
-                      child: Divider(
-                        endIndent: 36,
-                      ),
-                    ),
-                  ],
-                ),
-                28.hBox,
-                Center(
-                  child: Container(
-                    height: 48,
-                    width: 287,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        border: Border.all(color: Colors.black26)),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 30,
-                            width: 30,
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage("assets/ic_google.jpg"))),
-                          ),
-                        ),
-                        40.wBox,
-                        Text(
-                          "Login with Google",
-                          style: TextStyle(color: Colors.black54, fontSize: 14),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                20.hBox,
+                ),30.hBox,
+               
                 Row(
                   children: [
                     Padding(
@@ -187,12 +136,20 @@ class Loginpage extends StatelessWidget {
                       ),
                     ),
                     5.wBox,
-                    Text(
-                      "Sign Up",
-                      style: TextStyle(color: Colors.blue),
+                    InkWell(onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder:(context) => Registerpage(),));
+                    },
+                      child: Text(
+                        "Sign Up",
+                        style: TextStyle(color: Colors.blue),
+                      ),
                     )
                   ],
-                )
+                ),70.hBox, Container(height:75,width:double.infinity,
+                    
+                    decoration: BoxDecoration(
+                        image: DecorationImage(image: AssetImage("assets/Frame (3).png"))),
+                  )
               ],
             );
           },
